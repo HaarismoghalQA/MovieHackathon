@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Nav = () => {
     return (
         <div>
-            <p><Link to="/">Home</Link>
-            </p><br />
+            <button><Link to="/">Home</Link>
+            </button>
 
             <button>
                 <Link to="">My Movies</Link>
