@@ -1,44 +1,46 @@
-
 import axios from "axios";
 import { useState } from "react";
+import MovieCard from "./props/MovieCard";
 
 const MovieFinder = () => {
 
 	const [apiKey, setApiKey] = useState("");
 	const [movieTitle, setMovieTitle] = useState("");
-	const [plot, setPlot] = useState("short");
+	const [plot, setPlot] = useState("Short");
 	const [movieYear, setMovieYear] = useState("");
-	// const []
+	const [output, setOutput] = useState((<p></p>));
 
 	const handleClick = (e) => {
 		e.preventDefault();
-
-		console.log(e.target);
+		setOutput((<p>Loading</p>));
 
 		let url = `http://www.omdbapi.com/?apikey=${encodeURIComponent(apiKey) }&t=${encodeURIComponent(movieTitle)}`
 
-		if (plot) {
+		if (plot == "Full") {
 			url += "&plot=full"
 		}
 
 		if (movieYear !== "") {
 			url += `&y=${encodeURIComponent(movieYear)}`
 		}
-
-
-		// send an api request
-		console.log(url);
 		
 		axios.get(url).then((resp)=> {
-			console.log(resp);
+			if (resp.data.Response == "False"){
+				setOutput((<p>Movie Not Found</p>));
+			}else{
+				setOutput((
+					<div>
+						<MovieCard movie={resp.data}/>
+						<button type="button" onClick={()=>{axios.post("http://5.226.143.166:9456/api/film", resp.data).then((resp)=> setOutput(<h2>Saved Movie</h2>))}}>Save Movie</button>
+					</div>))
+			}
 		}).catch((error) => {
-			console.log(error);
+			setOutput((<p>There Wan an Error: {error.message}</p>));
 		});
-
 	}
 	return ( 
 		<div>
-			<form action="/">
+			<form>
 				<fieldset>
 					<legend>
 						Movie Finder
@@ -71,8 +73,8 @@ const MovieFinder = () => {
 					<select name="movieDescription" id="movieDescription" onChange= { (e) => {
 						setPlot(e.target.value);
 					}}>
-						<option value="short">Short</option>
-						<option value="full">Long</option>
+						<option value="Short">Short</option>
+						<option value="Full">Long</option>
 					</select>
 
 				</fieldset>
@@ -80,11 +82,10 @@ const MovieFinder = () => {
 			</form>
 
 			<div>
-				<div>
-					Film Card
-				</div>
+				{output}
 			</div>
 		</div>
+		
 	);
 }
  
