@@ -12,7 +12,7 @@ const Nav = () => {
             </button>
 
             <button>
-                <Link to="">Movie Finder</Link>
+                <Link to="/find">Movie Finder</Link>
             </button>
 
 
