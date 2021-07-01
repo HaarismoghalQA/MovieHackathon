@@ -1,10 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css';   
+import Aboutus from './compontents/Aboutus';
 import ContactUsPage from './components/contact';
-
 function App() {
   return (
-    <ContactUsPage/>
+    <div>
+      <Aboutus />
+      <ContactUsPage/>
+    </div>
   );
 }
 
