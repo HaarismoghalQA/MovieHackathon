@@ -23,14 +23,15 @@ function App() {
         <Route path="/AboutUs">
           <Aboutus />
         </Route>
-
+    
         <Route path="/FindMovie">
           <MovieFinder />
         </Route>
+    
+        <footer>
+           <b>&copy;ByteMe</b>
+        </footer>
       </BrowserRouter>
-      <footer>
-        <b>&copy;BiteMe 2021</b>
-      </footer>
     </div>
   );
 }
