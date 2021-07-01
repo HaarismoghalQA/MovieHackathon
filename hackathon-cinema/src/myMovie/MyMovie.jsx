@@ -48,32 +48,7 @@ const MyMovie = () => {
                     setError(error);
                 });
         }, loadTime);
-
     }
-
-    const ByteMovie = {
-        Title: "Byte Me",
-        Year: 2021,
-        Rated: "PG",
-        Writer: "Team Byte Me"
-
-    };
-
-    const postData = (id) => {
-        axios.post(`http://5.226.143.166:9456/api/film/${id}`, ByteMovie, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error)
-                setError(error)
-            });
-    }
-
    
 	const deleteFilm = (id) => {
 		axios.delete(url + "/api/film/" + id).then( (resp) => {
