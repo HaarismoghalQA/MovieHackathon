@@ -11,6 +11,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Nav />
+
         <Route path="/MyMovie">
           <MyMovie />
         </Route>
@@ -27,8 +28,12 @@ function App() {
           <MovieFinder />
         </Route>
       </BrowserRouter>
+      <footer>
+        <b>&copy;BiteMe 2021</b>
+      </footer>
     </div>
   );
+
 
 }
 
