@@ -3,7 +3,7 @@ import Aboutus from './components/Aboutus';
 import ContactUsPage from './components/contact';
 import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Navbar';
-
+import MyMovie from './myMovie/MyMovie';
 import MovieFinder from './components/moviefinder';
 
 function App() {
@@ -11,6 +11,8 @@ function App() {
         <div>
             <BrowserRouter>
                 <Nav/>
+      
+                <MyMovie/>
 
                 <Route path="/ContactUs">
                   <ContactUsPage/>
@@ -26,6 +28,7 @@ function App() {
             </BrowserRouter>
         </div>
     );
+
 }
 
 export default App;
