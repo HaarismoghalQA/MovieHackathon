@@ -15,6 +15,7 @@ const MovieFinder = () => {
 
 		console.log(e.target);
 
+		let url = `http://www.omdbapi.com/?apikey=${encodeURIComponent(apiKey) }&t=${encodeURIComponent(movieTitle)}`
 
 		if (plot) {
 			url += "&plot=full"
