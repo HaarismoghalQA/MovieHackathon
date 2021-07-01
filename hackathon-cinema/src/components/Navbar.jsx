@@ -17,11 +17,11 @@ const Nav = () => {
 
 
             <button>
-                <Link to="">About Us</Link>
+                <Link to="/AboutUs">About Us</Link>
             </button>
 
             <button>
-                <Link to="">Contact Us</Link>
+                <Link to="/ContactUs">Contact Us</Link>
             </button>
 
 

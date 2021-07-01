@@ -1,15 +1,23 @@
 import './App.css';
-import Aboutus from './compontents/Aboutus';
+import Aboutus from './components/Aboutus';
 import ContactUsPage from './components/contact';
-import { BrowserRouter } from "react-router-dom";
-import Nav from './compontents/Navbar';
+import { BrowserRouter, Route } from "react-router-dom";
+import Nav from './components/Navbar';
+
 function App() {
     return (
         <div>
             <BrowserRouter>
-                <Nav />
-                <Aboutus />
-                <ContactUsPage />
+                <Nav/>
+
+                <Route path="/ContactUs">
+                  <ContactUsPage/>
+                </Route>
+
+                <Route path="/AboutUs">
+                  <Aboutus/>
+                </Route>
+                
             </BrowserRouter>
         </div>
     );
