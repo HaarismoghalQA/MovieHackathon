@@ -16,9 +16,7 @@ const Aboutus = () => {
             <p>text about what we do</p>
 
 
-            <footer>
-                <b>&copy;BiteMe</b>
-            </footer>
+
         </div>
 
 

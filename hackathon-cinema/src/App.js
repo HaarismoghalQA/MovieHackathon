@@ -5,22 +5,25 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Navbar';
 
 function App() {
-    return (
-        <div>
-            <BrowserRouter>
-                <Nav/>
+  return (
+    <div>
+      <BrowserRouter>
+        <Nav />
 
-                <Route path="/ContactUs">
-                  <ContactUsPage/>
-                </Route>
+        <Route path="/ContactUs">
+          <ContactUsPage />
+        </Route>
 
-                <Route path="/AboutUs">
-                  <Aboutus/>
-                </Route>
-                
-            </BrowserRouter>
-        </div>
-    );
+        <Route path="/AboutUs">
+          <Aboutus />
+        </Route>
+
+      </BrowserRouter>
+      <footer>
+        <b>&copy;ByteMe</b>
+      </footer>
+    </div>
+  );
 }
 
 export default App;
