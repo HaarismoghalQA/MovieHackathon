@@ -20,9 +20,10 @@ function App() {
                   <Aboutus/>
                 </Route>
       
-                <Route path="/find">
+                <Route path="/MoiveFinder">
                   <MovieFinder/>
                 </Route>
+
             </BrowserRouter>
         </div>
     );
