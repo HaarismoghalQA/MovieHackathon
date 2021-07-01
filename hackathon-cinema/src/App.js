@@ -4,6 +4,8 @@ import ContactUsPage from './components/contact';
 import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Navbar';
 
+import MovieFinder from './components/moviefinder';
+
 function App() {
     return (
         <div>
@@ -17,7 +19,10 @@ function App() {
                 <Route path="/AboutUs">
                   <Aboutus/>
                 </Route>
-                
+      
+                <Route path="/find">
+                  <MovieFinder/>
+                </Route>
             </BrowserRouter>
         </div>
     );
