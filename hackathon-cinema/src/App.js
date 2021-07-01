@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Aboutus from './components/Aboutus';
 import ContactUsPage from './components/contact';
 import { BrowserRouter, Route } from "react-router-dom";
-import Nav from './components/Navbar';
+import NavBar from './components/Navbar';
 import MyMovie from './components/MyMovie';
 import MovieFinder from './components/moviefinder';
 import LandingPage from './components/Landing';
@@ -14,13 +14,13 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Nav />
+        <NavBar />
 
         <Route path="/" exact>
           <LandingPage/>
         </Route>
 
-        <Route path="/MyMovie">
+        <Route path="/MyMovies">
           <MyMovie />
         </Route>
 
