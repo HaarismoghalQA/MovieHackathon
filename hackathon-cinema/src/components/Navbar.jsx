@@ -8,11 +8,11 @@ const Nav = () => {
             </button>
 
             <button>
-                <Link to="">My Movies</Link>
+                <Link to="/MyMovie">My Movies</Link>
             </button>
 
             <button>
-                <Link to="">Movie Finder</Link>
+                <Link to="/FindMovie">Movie Finder</Link>
             </button>
 
 
