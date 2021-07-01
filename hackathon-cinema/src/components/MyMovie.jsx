@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import Movies from "./Movies";
+import MovieCard from "./props/MovieCard";
 
 
 const url = "http://5.226.143.166:9456"
@@ -89,7 +89,7 @@ const MyMovie = () => {
             <div>
                 {movieList.map((x,i) => (
                     <div> 
-						<Movies key={i} Title={x.Title} Year={x.Year} Runtime={x.Runtime} Genre={x.Genre} Plot={x.Plot} Poster={x.Poster} />
+						<MovieCard key={i} movie={x} />
 						<button onClick={ (e) => {  deleteFilm(x._id); 
 							e.preventDefault();
 						}  }>

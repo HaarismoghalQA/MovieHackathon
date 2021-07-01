@@ -3,7 +3,7 @@ import Aboutus from './components/Aboutus';
 import ContactUsPage from './components/contact';
 import { BrowserRouter, Route } from "react-router-dom";
 import Nav from './components/Navbar';
-import MyMovie from './myMovie/MyMovie';
+import MyMovie from './components/MyMovie';
 import MovieFinder from './components/moviefinder';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         </Route>
     
         <footer>
-           <b>&copy;ByteMe</b>
+           <i>&copy;ByteMe</i>
         </footer>
       </BrowserRouter>
     </div>
