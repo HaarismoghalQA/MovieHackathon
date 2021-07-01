@@ -7,7 +7,10 @@ const ContactUsPage = () => {
 
     const handleSubmit = (e) => {
          e.preventDefault();
-         alert('Thanks for Feedback.')
+         alert('Thanks for Feedback.');
+         e.target[0].value = "";
+         e.target[1].value = "";
+         e.target[2].value = "";
        }
 
     const handleChange = (e) => {

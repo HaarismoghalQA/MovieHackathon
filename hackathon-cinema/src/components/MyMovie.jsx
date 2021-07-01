@@ -25,7 +25,7 @@ const MyMovie = () => {
     // axios.*request type*(url)
     useEffect(() => {
         getData();
-    }, );
+    } );
 
     //const filmTitle = "detective+pikachu";
     const getData = () => {

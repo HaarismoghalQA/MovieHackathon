@@ -16,7 +16,7 @@ const MovieFinder = () => {
 
 		let url = `http://www.omdbapi.com/?apikey=${encodeURIComponent(apiKey) }&t=${encodeURIComponent(movieTitle)}`
 
-		if (plot == "Full") {
+		if (plot === "Full") {
 			url += "&plot=full"
 		}
 
@@ -25,13 +25,13 @@ const MovieFinder = () => {
 		}
 		
 		axios.get(url).then((resp)=> {
-			if (resp.data.Response == "False"){
+			if (resp.data.Response === "False"){
 				setOutput((<p>Movie Not Found</p>));
 			}else{
 				setOutput((
 					<div>
 						<MovieCard movie={resp.data}/>
-						<button type="button" onClick={()=>{axios.post("http://5.226.143.166:9456/api/film", resp.data).then((resp)=> setOutput(<h2>Saved Movie</h2>))}}>Save Movie</button>
+						<button variant="secondary" type="button" onClick={()=>{axios.post("http://5.226.143.166:9456/api/film", resp.data).then((resp)=> setOutput(<h2>Saved Movie</h2>))}}>Save Movie</button>
 					</div>))
 			}
 		}).catch((error) => {
