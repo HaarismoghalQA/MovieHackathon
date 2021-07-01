@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import Movies from "./Movies";
 
+
+const url = "http://5.226.143.166:9456"
+
+
 const MyMovie = () => {
 
     // Data being pulled from API
@@ -21,19 +25,18 @@ const MyMovie = () => {
     // axios.*request type*(url)
     useEffect(() => {
         getData();
-    });
+    }, );
 
     //const filmTitle = "detective+pikachu";
     const getData = () => {
-        setTimeout(() => {
-            axios.get(`http://5.226.143.166:9456/api/film`, {
+		setTimeout(() => {
+			//setLoaded(false);
+            axios.get(url + `/api/film`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
             }) //t=detective+pikachu
                 .then((response) => {
-                    // console.log(response.data);
-                    // Setting loaded state to true because data is loaded
                     setLoaded(true);
                     // setMovieList([ByteMovie]);
                     setMovieList(response.data);
@@ -72,8 +75,34 @@ const MyMovie = () => {
     }
 
    
+	const deleteFilm = (id) => {
+		axios.delete(url + "/api/film/" + id).then( (resp) => {
+			getData();
+		} )
+	};
+
+	const updateFilm = (id, imdbID) => {
+		// open a modal 
+		// ask for api key
+		// send put request with data from omdb api
+
+		const apiKey = prompt('Please enter your API Key');
+
+		const shortBool = window.confirm("Do you want a short description");
+
+		let omdbUrl = `http://www.omdbapi.com/?apikey=${encodeURIComponent(apiKey) }&i=${imdbID}`;
+
+		if (!shortBool) {
+			omdbUrl += "&plot=full"
+		}
 
 
+		axios.get(omdbUrl).then( (resp ) => {
+			axios.put(url + "/api/film/" + id, resp.data).then( () => {
+				setLoaded(false);
+			} );
+		} )
+	}
 
     if (error) {
         return <p> Oops, something has gone wrong! {error.message} </p>
@@ -84,7 +113,17 @@ const MyMovie = () => {
         return (
             <div>
                 {movieList.map((x,i) => (
-                    <Movies key={i} Title={x.Title} Year={x.Year} Runtime={x.Runtime} Genre={x.Genre} Plot={x.Plot} Poster={x.Poster} />
+                    <div> 
+						<Movies key={i} Title={x.Title} Year={x.Year} Runtime={x.Runtime} Genre={x.Genre} Plot={x.Plot} Poster={x.Poster} />
+						<button onClick={ (e) => {  deleteFilm(x._id); 
+							e.preventDefault();
+						}  }>
+							Delete
+						</button>
+						<button onClick = { (e)=> { updateFilm(x._id, x.imdbID); e.preventDefault();}}>
+							Update
+						</button>
+					</div>
                 ))}
             </div>
         )
