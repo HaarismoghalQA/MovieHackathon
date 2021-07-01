@@ -7,25 +7,28 @@ import Nav from './components/Navbar';
 import MovieFinder from './components/moviefinder';
 
 function App() {
-    return (
-        <div>
-            <BrowserRouter>
-                <Nav/>
+  return (
+    <div>
+      <BrowserRouter>
+        <Nav />
 
-                <Route path="/ContactUs">
-                  <ContactUsPage/>
-                </Route>
+        <Route path="/ContactUs">
+          <ContactUsPage />
+        </Route>
 
-                <Route path="/AboutUs">
-                  <Aboutus/>
-                </Route>
-      
-                <Route path="/find">
-                  <MovieFinder/>
-                </Route>
-            </BrowserRouter>
-        </div>
-    );
+        <Route path="/AboutUs">
+          <Aboutus />
+        </Route>
+
+        <Route path="/find">
+          <MovieFinder />
+        </Route>
+      </BrowserRouter>
+      <footer>
+        <b>&copy;BiteMe 2021</b>
+      </footer>
+    </div>
+  );
 }
 
 export default App;
